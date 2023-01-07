@@ -1,3 +1,4 @@
+import { execSync } from 'node:child_process'
 import { writeFile } from 'node:fs/promises'
 import { basename, join } from 'node:path'
 import { vote } from './siblings.js'
@@ -42,4 +43,11 @@ export async function makePackageJson(path: string) {
             '    ',
         ),
     )
+}
+
+export function installEnvPackage(path: string) {
+    execSync('npm install --progress false --save-exact --save-dev @riddance/env@latest', {
+        cwd: path,
+        stdio: 'inherit',
+    })
 }
