@@ -2,11 +2,16 @@
     "name": "@riddance/init",
     "version": "0.0.1",
     "type": "module",
-    "private": true,
+    "license": "MIT",
     "engines": {
         "node": ">=16"
     },
+    "files": [
+        "*.js",
+        "lib/*.js"
+    ],
     "scripts": {
+        "prepare": "tsc",
         "start": "watch"
     },
     "devDependencies": {
