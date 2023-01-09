@@ -40,7 +40,7 @@ export async function makePackageJson(path: string) {
                 ...packageJson,
             },
             undefined,
-            '    ',
+            '  ',
         ),
     )
 }
