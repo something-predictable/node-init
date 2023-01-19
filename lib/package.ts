@@ -11,7 +11,7 @@ const packageJson = {
         node: '>=16',
     },
     scripts: {
-        start: 'watch',
+        start: 'riddance-watch',
     },
 }
 
