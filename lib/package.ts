@@ -8,7 +8,7 @@ const packageJson = {
     type: 'module',
     private: true,
     engines: {
-        node: '>=16',
+        node: '>=18',
     },
     scripts: {
         start: 'riddance-watch',

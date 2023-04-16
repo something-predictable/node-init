@@ -1,3 +1,4 @@
 filemode
 logallrefupdates
+postpublish
 repositoryformatversion
