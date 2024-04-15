@@ -39,7 +39,7 @@ export async function vote<T>(
         return
     }
     if (third) {
-        if (first[1] > 2 && second[1] === 1 && third[1] === 1) {
+        if (first[1] > 3 && second[1] === 2 && third[1] === 1) {
             return first[0]
         }
     }
