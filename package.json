@@ -1,10 +1,10 @@
 {
   "name": "@riddance/init",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "type": "module",
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "files": [
     "*.js",
@@ -17,6 +17,6 @@
     "postpublish": "riddance-sync"
   },
   "devDependencies": {
-    "@riddance/env": "0.4.2"
+    "@riddance/env": "0.5.0"
   }
 }
