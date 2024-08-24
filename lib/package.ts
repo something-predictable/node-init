@@ -18,7 +18,7 @@ const packageJson = {
 export async function makePackageJson(path: string) {
     let name = basename(path)
     if (name.startsWith('node-')) {
-        name = name.substring('node-'.length)
+        name = name.slice('node-'.length)
     }
     const scope = await vote(path, 'package.json', content => {
         const { name: sibling } = JSON.parse(content) as { name: string }
@@ -26,7 +26,7 @@ export async function makePackageJson(path: string) {
         if (scopeIx === -1 || !sibling.startsWith('@')) {
             return undefined
         }
-        return sibling.substring(1, scopeIx)
+        return sibling.slice(1, scopeIx)
     })
     if (scope) {
         name = `@${scope}/${name}`
