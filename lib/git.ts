@@ -6,17 +6,13 @@ export async function init(path: string) {
     await mkdir(join(path, '.git/objects'), { recursive: true })
     await mkdir(join(path, '.git/refs'), { recursive: true })
     await writeFile(join(path, '.git/HEAD'), 'ref: refs/heads/main\n')
-    const config = await vote(
-        path,
-        '.git/config',
-        content =>
-            '[' +
-            content
-                .split('[')
-                .filter(section => section.startsWith('remote "origin"]'))
-                .join('[')
-                .replace(/(url\s*=.*\/)([^/]+)(\.git\n)/u, '$1%$3'),
-    )
+    const config = await vote(path, '.git/config', content => {
+        const remotes = content.split('[').filter(section => section.startsWith('remote "origin"]'))
+        if (remotes.length === 0) {
+            return
+        }
+        return '[' + remotes.join('[').replace(/(url\s*=.*\/)([^/]+)(\.git\n)/u, '$1%$3')
+    })
     await writeFile(
         join(path, '.git/config'),
         `[core]
