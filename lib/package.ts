@@ -4,7 +4,6 @@ import { basename, join } from 'node:path'
 import { vote } from './siblings.js'
 
 const packageJson = {
-    version: '0.0.1',
     type: 'module',
     private: true,
     engines: {
